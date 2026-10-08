@@ -53,4 +53,16 @@ public class ReporteService {
             System.out.println(movimiento);
         }
     }
+
+    public void mostrarMovimientos(
+            List<MovimientoInventario> movimientos) {
+
+        System.out.println(
+                "========= MOVIMIENTOS ========="
+        );
+
+        for (MovimientoInventario movimiento : movimientos) {
+            System.out.println(movimiento);
+        }
+    }
 }
