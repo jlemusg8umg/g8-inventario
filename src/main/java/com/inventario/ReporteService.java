@@ -42,27 +42,19 @@ public class ReporteService {
         }
     }
 
-    public void mostrarMovimientos(
-            List<MovimientoInventario> movimientos) {
-
-        System.out.println(
-                "========= MOVIMIENTOS ========="
-        );
+    public void mostrarMovimientos(List<MovimientoInventario> movimientos) {
+        logger.info("========= MOVIMIENTOS =========");
 
         for (MovimientoInventario movimiento : movimientos) {
-            System.out.println(movimiento);
+            logger.info(movimiento.toString());
         }
     }
 
-    public void mostrarMovimientos(
-            List<MovimientoInventario> movimientos) {
-
-        System.out.println(
-                "========= MOVIMIENTOS ========="
-        );
+    public void mostrarMovimientos(List<MovimientoInventario> movimientos) {
+        logger.info("========= MOVIMIENTOS =========");
 
         for (MovimientoInventario movimiento : movimientos) {
-            System.out.println(movimiento);
+            logger.info(movimiento.toString());
         }
     }
 }
