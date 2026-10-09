@@ -107,7 +107,7 @@ public class Main {
         System.out.println();
 
         System.out.println(
-                "Valor total del inventario: Q"
+                "Valor total actual del inventario: Q"
                         + inventario.calcularValorInventario()
         );
 
@@ -116,6 +116,7 @@ public class Main {
         inventario.analizarInventario();
 
         System.out.println();
+        System.out.println("prueba");
 
         reportes.mostrarMovimientos(
                 inventario.getMovimientos()

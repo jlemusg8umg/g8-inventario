@@ -5,10 +5,10 @@ import java.util.List;
 
 public class InventarioService {
 
-    private List<Producto> productos = new ArrayList<>();
-    private List<MovimientoInventario> movimientos = new ArrayList<>();
+    private final List<Producto> productos = new ArrayList<>();
+    private final List<MovimientoInventario> movimientos = new ArrayList<>();
 
-    private ValidacionService validacionService = new ValidacionService();
+    private final ValidacionService validacionService = new ValidacionService();
 
     public void registrarProducto(Producto producto) {
 
@@ -110,7 +110,7 @@ public class InventarioService {
 
         System.out.println("Stock actualizado");
 
-        System.out.println("Stock actualizado");
+
     }
 
     public void actualizarPrecio(
@@ -197,39 +197,21 @@ public class InventarioService {
         for (Producto producto : productos) {
 
             if (producto.getStock() == 0) {
-
                 System.out.println(
-                        producto.getNombre()
-                                + " SIN EXISTENCIAS"
+                        producto.getNombre() + " SIN EXISTENCIAS"
                 );
-
+            } else if (producto.getStock() <= producto.getStockMinimo()) {
+                System.out.println(
+                        producto.getNombre() + " STOCK BAJO"
+                );
+            } else if (producto.getStock() > 100) {
+                System.out.println(
+                        producto.getNombre() + " SOBRE STOCK"
+                );
             } else {
-
-                if (producto.getStock()
-                        <= producto.getStockMinimo()) {
-
-                    System.out.println(
-                            producto.getNombre()
-                                    + " STOCK BAJO"
-                    );
-
-                } else {
-
-                    if (producto.getStock() > 100) {
-
-                        System.out.println(
-                                producto.getNombre()
-                                        + " SOBRE STOCK"
-                        );
-
-                    } else {
-
-                        System.out.println(
-                                producto.getNombre()
-                                        + " STOCK NORMAL"
-                        );
-                    }
-                }
+                System.out.println(
+                        producto.getNombre() + " STOCK NORMAL"
+                );
             }
         }
     }
