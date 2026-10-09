@@ -8,12 +8,12 @@ public class ValidacionService {
             return false;
         }
 
-        if (producto.getCodigo() == null) {
+        if (producto.getCodigo() == null || producto.getCodigo().isBlank()) {
             System.out.println("Código inválido");
             return false;
         }
 
-        if (producto.getNombre() == null) {
+        if (producto.getNombre() == null || producto.getNombre().isBlank()) {
             System.out.println("Nombre inválido");
             return false;
         }
