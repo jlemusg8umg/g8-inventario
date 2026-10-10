@@ -4,7 +4,10 @@ import java.util.List;
 import java.util.logging.Logger;
 
 
+
 public class ReporteService {
+    private static final Logger LOGGER =
+            Logger.getLogger(ReporteService.class.getName());
     public void mostrarInventario(
             List<Producto> productos) {
 
@@ -45,19 +48,12 @@ public class ReporteService {
         }
     }
 
-    public void mostrarMovimientos(List<MovimientoInventario> movimientos) {
-        logger.info("========= MOVIMIENTOS =========");
-
-        for (MovimientoInventario movimiento : movimientos) {
-            logger.info(movimiento.toString());
-        }
-    }
 
     public void mostrarMovimientos(List<MovimientoInventario> movimientos) {
-        logger.info("========= MOVIMIENTOS =========");
+        LOGGER.info("========= MOVIMIENTOS =========");
 
         for (MovimientoInventario movimiento : movimientos) {
-            logger.info(movimiento.toString());
+            LOGGER.info(movimiento.toString());
         }
     }
 }
