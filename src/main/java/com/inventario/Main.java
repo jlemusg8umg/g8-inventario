@@ -116,6 +116,7 @@ public class Main {
         inventario.analizarInventario();
 
         System.out.println();
+        System.out.println("prueba");
 
         reportes.mostrarMovimientos(
                 inventario.getMovimientos()
