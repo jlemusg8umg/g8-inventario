@@ -19,6 +19,11 @@ jobs:
           cache: 'maven'    
       - name: Build and test with Maven
         run: mvn clean verify
+      - name: Verificar reporte JaCoCo
+        run: |
+          echo "Buscando reporte de cobertura..."
+          ls -R target/site/jacoco || true
+          test -f target/site/jacoco/jacoco.xml
 
       - name: Cache SonarQube packages
         uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
@@ -28,5 +33,8 @@ jobs:
           restore-keys: ${{ runner.os }}-sonar
       - name: SonarQube Scan
         uses: SonarSource/sonarqube-scan-action@7006c4492b2e0ee0f816d36501671557c97f5995 # v8.1.0
+        with:
+          args: >
+            -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
