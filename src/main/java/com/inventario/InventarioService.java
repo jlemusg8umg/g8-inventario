@@ -2,6 +2,7 @@ package com.inventario;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 public class InventarioService {
 
@@ -9,6 +10,9 @@ public class InventarioService {
     private final List<MovimientoInventario> movimientos = new ArrayList<>();
 
     private final ValidacionService validacionService = new ValidacionService();
+    private static final String PRODUCTO_NO_ENCONTRADO = "Producto no encontrado";
+    private static final Logger LOGGER =
+            Logger.getLogger(InventarioService.class.getName());
 
     public void registrarProducto(Producto producto) {
 
@@ -33,7 +37,7 @@ public class InventarioService {
                 )
         );
 
-        System.out.println("Producto registrado correctamente");
+        LOGGER.info("Producto registrado correctamente");
     }
 
     public Producto buscarProducto(String codigo) {
@@ -53,7 +57,7 @@ public class InventarioService {
         Producto producto = buscarProducto(codigo);
 
         if (producto == null) {
-            System.out.println("Producto no encontrado");
+            LOGGER.warning(PRODUCTO_NO_ENCONTRADO);
             return;
         }
 
@@ -82,7 +86,7 @@ public class InventarioService {
         Producto producto = buscarProducto(codigo);
 
         if (producto == null) {
-            System.out.println("Producto no encontrado");
+            System.out.println(PRODUCTO_NO_ENCONTRADO);
             return;
         }
 
@@ -120,7 +124,7 @@ public class InventarioService {
         Producto producto = buscarProducto(codigo);
 
         if (producto == null) {
-            System.out.println("Producto no encontrado");
+            System.out.println(PRODUCTO_NO_ENCONTRADO);
             return;
         }
 
@@ -139,7 +143,7 @@ public class InventarioService {
         Producto producto = buscarProducto(codigo);
 
         if (producto == null) {
-            System.out.println("Producto no encontrado");
+            System.out.println(PRODUCTO_NO_ENCONTRADO);
             return;
         }
 

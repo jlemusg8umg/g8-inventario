@@ -1,6 +1,11 @@
 package com.inventario;
+import java.util.logging.Logger;
 
 public class ValidacionService {
+
+    private static final Logger LOGGER =
+            Logger.getLogger(ValidacionService.class.getName());
+    private static final String STOCK_INVALIDO = "Stock inválido";
     public boolean validarProducto(Producto producto) {
 
         if (producto == null) {
@@ -24,7 +29,7 @@ public class ValidacionService {
         }
 
         if (producto.getStock() < 0) {
-            System.out.println("Stock inválido");
+            LOGGER.warning(STOCK_INVALIDO);
             return false;
         }
 
@@ -34,7 +39,7 @@ public class ValidacionService {
     public boolean validarStock(int stock) {
 
         if (stock < 0) {
-            System.out.println("Stock inválido");
+            LOGGER.warning(STOCK_INVALIDO);
             return false;
         }
 
