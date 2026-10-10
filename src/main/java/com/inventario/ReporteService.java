@@ -1,6 +1,9 @@
 package com.inventario;
 
 import java.util.List;
+import java.util.logging.Logger;
+
+
 public class ReporteService {
     public void mostrarInventario(
             List<Producto> productos) {
