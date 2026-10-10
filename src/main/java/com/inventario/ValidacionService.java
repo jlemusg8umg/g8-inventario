@@ -39,27 +39,27 @@ public class ValidacionService {
     public boolean validarProductoDuplicado(Producto producto) {
 
         if (producto == null) {
-            System.out.println("Producto inválido");
+            LOGGER.warning("Producto inválido");
             return false;
         }
 
         if (producto.getCodigo() == null) {
-            System.out.println("Código inválido");
+            LOGGER.warning("Código inválido");
             return false;
         }
 
         if (producto.getNombre() == null) {
-            System.out.println("Nombre inválido");
+            LOGGER.warning("Nombre inválido");
             return false;
         }
 
         if (producto.getPrecio() < 0) {
-            System.out.println("Precio inválido");
+            LOGGER.warning("Precio inválido");
             return false;
         }
 
         if (producto.getStock() < 0) {
-            System.out.println("Stock inválido");
+            LOGGER.warning(STOCK_INVALIDO);
             return false;
         }
 
